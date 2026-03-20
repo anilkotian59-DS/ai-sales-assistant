@@ -10,8 +10,10 @@ st.sidebar.title("⚙️ Controls")
 
 groq_api_key = st.secrets["GROQ_API_KEY"]
 
-uploaded_files = st.sidebar.file_uploader(
-    "Upload PDFs", type="pdf", accept_multiple_files=True
+uploaded_files = st.file_uploader(
+    "📄 Upload your documents (PDF)",
+    type="pdf",
+    accept_multiple_files=True
 )
 
 if st.sidebar.button("🧹 Clear Chat"):
@@ -26,7 +28,7 @@ if "vectorstore" not in st.session_state:
     st.session_state.vectorstore = None
 
 # ---------------- Process Files ----------------
-if uploaded_files and groq_api_key:
+if uploaded_files:
     with st.spinner("Processing documents..."):
         all_chunks = []
 
