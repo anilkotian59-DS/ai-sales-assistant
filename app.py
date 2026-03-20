@@ -1,4 +1,5 @@
 import streamlit as st
+import os 
 from utils import load_and_process_pdf, create_vector_store, ask_question
 
 st.set_page_config(page_title="AI Sales Assistant", layout="wide")
@@ -33,6 +34,7 @@ if uploaded_files:
         all_chunks = []
 
         for file in uploaded_files:
+            os.makedirs("data", exist_ok=True)
             file_path = f"data/{file.name}"
             with open(file_path, "wb") as f:
                 f.write(file.read())
