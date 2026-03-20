@@ -8,7 +8,7 @@ st.title("🤖 AI Sales Assistant (Advanced)")
 # ---------------- Sidebar ----------------
 st.sidebar.title("⚙️ Controls")
 
-["groq_api_key = st.secrets["GROQ_API_KEY"]"]
+groq_api_key = st.secrets["GROQ_API_KEY"]
 
 uploaded_files = st.sidebar.file_uploader(
     "Upload PDFs", type="pdf", accept_multiple_files=True
